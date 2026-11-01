@@ -6,7 +6,7 @@ This repository provides the three polarimetric SAR benchmark datasets used in:
 
 Each archive contains the Lee-refined coherency matrix (T3) data and the ground-truth labels used in the experiments.
 
-**Download:** the three archives are available on the [Releases](./releases) page.
+**Download:** each archive is stored in this repository as multi-part files of at most 12 MB (see [Reassembling the Split Archives](#reassembling-the-split-archives) below).
 
 | Archive | Site | Sensor | Band | Size | Classes |
 |---|---|---|---|---|---|
@@ -23,6 +23,28 @@ Each archive contains one dataset folder (named after the original data director
   - Flevoland: `standard image/Farm_W.mat`
   - San Francisco: `standard image/AIRSAR_SF_W.mat`
   - Oberpfaffenhofen: `standard image/Oberpfaffenhofen_W.mat`
+
+## Reassembling the Split Archives
+
+Each archive is split into parts named `<archive>.zip.001`, `<archive>.zip.002`, ... Reassemble them into a single `.zip` file before extracting.
+
+Windows (Command Prompt):
+
+```bat
+copy /b Flevoland.zip.001+Flevoland.zip.002+Flevoland.zip.003 Flevoland.zip
+copy /b SanFrancisco.zip.001+SanFrancisco.zip.002+SanFrancisco.zip.003 SanFrancisco.zip
+copy /b Oberpfaffenhofen.zip.001+Oberpfaffenhofen.zip.002+Oberpfaffenhofen.zip.003+Oberpfaffenhofen.zip.004+Oberpfaffenhofen.zip.005+Oberpfaffenhofen.zip.006 Oberpfaffenhofen.zip
+```
+
+Linux / macOS:
+
+```bash
+cat Flevoland.zip.* > Flevoland.zip
+cat SanFrancisco.zip.* > SanFrancisco.zip
+cat Oberpfaffenhofen.zip.* > Oberpfaffenhofen.zip
+```
+
+Then extract the resulting `.zip` files normally.
 
 ## Class Legends
 
